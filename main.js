@@ -88,10 +88,12 @@ const handleNavClick = (e) => {
   if (navId === 'navToHome') {
     homePage.classList.remove('d-none');
     aboutUsPage.classList.add('d-none');
+    productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
   } else if (navId === 'navToAboutUs') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.remove('d-none');
+    productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
   } else if (navId === 'navToProducts') {
     homePage.classList.add('d-none');
