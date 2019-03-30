@@ -1,3 +1,22 @@
 body {
     background-color: whitesmoke;
 }
+
+.last-line {
+    width: 70px !important;
+}
+
+.beer-img {
+    height: 400px;
+    width: 200;
+}
+#prompt {
+    text-align: center;
+    margin-right: 5px;
+}
+
+.card {
+    width: 30%;
+    max-width: 300px;
+    margin: 10px;
+}
