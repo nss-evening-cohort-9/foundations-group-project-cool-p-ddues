@@ -33,6 +33,7 @@ const eventListeners = () => {
 };
 
 const init = () => {
+  pageLoad();
   eventListeners();
 }
 
