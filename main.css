@@ -28,3 +28,6 @@ body {
     background-color: white;
     background-blend-mode: color;
 }
+.nav-item {
+    cursor: pointer;
+}
