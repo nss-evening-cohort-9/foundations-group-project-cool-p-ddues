@@ -75,6 +75,8 @@ const navItem = document.getElementsByClassName('nav-item');
 const homePage = document.getElementById('home');
 const aboutUsPage = document.getElementById('about-us');
 const productsPage = document.getElementById('products');
+const aboutUsHomeButton = document.getElementById('aboutUs-homeButton');
+
 
 const pageLoad = () => {
   aboutUsPage.classList.add('d-none');
@@ -88,16 +90,25 @@ const handleNavClick = (e) => {
   if (navId === 'navToHome') {
     homePage.classList.remove('d-none');
     aboutUsPage.classList.add('d-none');
+    aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
   } else if (navId === 'navToAboutUs') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.remove('d-none');
+    aboutUsHomeButton.classList.remove('d-none');
+    productsPage.classList.remove('d-flex')
+    productsPage.classList.add('d-none');
+  } else if (navId === 'aboutUs-homeButton') {
+    homePage.classList.add('d-none');
+    aboutUsPage.classList.remove('d-none');
+    aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
   } else if (navId === 'navToProducts') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.add('d-none');
+    aboutUsHomeButton.classList.add('d-none');
     productsPage.classList.remove('d-none');
     productsPage.classList.add('d-flex');
   };
