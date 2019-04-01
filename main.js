@@ -1,4 +1,3 @@
-
 const navItem = document.getElementsByClassName('nav-item');
 const homePage = document.getElementById('home');
 const aboutUsPage = document.getElementById('about-us');
@@ -6,38 +5,38 @@ const productsPage = document.getElementById('products');
 
 const beers = [{
     beerName: 'King Penguin',
-    beerImgURL: './img/beer1.png',
+    beerImgURL: './img/king-penguin-bottle.png',
     beerId: 'p1',
     beerPrice: 2.00,
     beerType: 'Amber Lager',
-    beerFlavor: ['full', 'bready', 'biscuity', 'malt', ' and has a crisp finish'],
+    beerFlavor: ['full', ' bready', ' biscuity', ' malt', ' crisp finish'],
     isAvailable: 'Available',
   },
   {
     beerName: 'Emperor Penguin',
-    beerImgURL: './img/beer2.png',
+    beerImgURL: './img/emperor-penguin-bottle.png',
     beerId: 'p2',
     beerPrice: 3.00,
     beerType: 'IPA',
-    beerFlavor: ['bold', 'herbal', 'citric', ' and hoppy'],
+    beerFlavor: ['bold', ' herbal', ' citric', ' hoppy'],
     isAvailable: 'Available',
   },
   {
     beerName: 'Little Penguin',
-    beerImgURL: './img/beer3.png',
+    beerImgURL: './img/little-penguin-bottle.png',
     beerId: 'p3',
     beerPrice: 1.50,
     beerType: 'Hefeweizen',
-    beerFlavor: ['spicy', 'refreshing', 'floral aroma', ' and has a snappy finish'],
+    beerFlavor: ['spicy', ' refreshing', ' floral aroma', ' snappy finish'],
     isAvailable: 'Available',
   },
   {
     beerName: 'Wasted Penguin',
-    beerImgURL: './img/beer4.png',
+    beerImgURL: './img/wasted-penguin-bottle.png',
     beerId: 'p4',
     beerPrice: 7.50,
     beerType: 'Stout',
-    beerFlavor: ['dark', 'heavy', 'coffee aroma', ' and has a creamy finish'],
+    beerFlavor: ['dark', ' heavy', ' coffee aroma', ' creamy finish'],
     isAvailable: 'Not Available',
   }];
 
@@ -49,25 +48,27 @@ const printToDom = (divId, textToPrint) => {
 const beerBuilder = (beersArray) => {
     domString = '';
     beersArray.forEach((beer) => {      
-      domString += `<div class="card" >`;
-      domString +=    `<div id='card' class='card-body'>`;
-      domString +=        `<img src=${beer.beerImgURL} class="card-img-top beer-img">`;
-      domString +=        `<h3 class="card-title">${beer.beerName}</h3>`;
-      domString +=        `<h4>${beer.beerType}</h4>`;
-      domString +=        `<h5>This beer is ${beer.beerFlavor}</h3>`;
-      domString +=        `<h3>${beer.beerPrice}</h3>`;
-      domString +=       `<h3>${beer.isAvailable}</h3>`; //add an if loop or something
+      domString += `<div class="card">`;
+      domString +=   `<div id='card' class="card-body p-0 m-0">`;
+      domString +=     `<img src=${beer.beerImgURL} class="card-img-top beer-img">`;
+      domString +=     `<div class="card-text p-2 border-top d-flex flex-row flex-wrap">`
+      domString +=       `<h4 class="card-title my-0 col-9 m-0 p-0">${beer.beerName}</h4>`;
+      domString +=       `<p class="text-right align-self-end text-muted-2 col-3 m-0 p-0">$${beer.beerPrice.toFixed(2)}</p>`;
+      domString +=       `<p class="col-9 m-0 p-0">${beer.beerType}</p>`;
+      domString +=       `<p class="text-muted-2 m-0 flavor-size col-7"><small>${beer.beerFlavor}</small></p>`;
+      domString +=       `<p class="text-right col-5 p-0 m-0 align-self-end">${beer.isAvailable}</p>`; //add an if loop or something
       // form inputs for bootstrap
-      domString +=        `<form class="form-inline">`
-      domString +=        `<div class="form-group mb-1">`
-      domString +=        `<input type="text" readonly class="form-control-plaintext last-line" id="prompt" value="Quantity:">`
-      domString +=        `</div>`
-      domString +=        `<div class="form-group mb-2">`
-      domString +=        `<input type="numbers" class="form-control last-line mr-4" id="inputNumber" placeholder="0">`
-      domString +=        `</div>`
-      domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4">Buy</button>`
-      domString +=        `</form>`
-      domString +=    `</div>`;
+      domString +=       `<form>`
+      domString +=         `<div class="form-row row justify-content-between mt-1">`
+      domString +=           `<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm px-0 mx-0" id="prompt">Quantity:</label>`
+      domString +=           `<div class="col-4 px-0 mx-2">`
+      domString +=             `<input type="numbers" class="form-control form-control-sm" id="inputNumber" placeholder="0">`
+      domString +=           `</div>`
+      domString +=             `<button type="submit" class="btn btn-primary col-4 p-0 mx-0">Buy</button>`
+      domString +=         `</div>`
+      domString +=       `</form>`
+      domString +=     `</div>`
+      domString +=   `</div>`;
       domString += `</div>`;
     });
     printToDom('products', domString);
