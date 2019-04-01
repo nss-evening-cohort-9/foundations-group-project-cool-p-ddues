@@ -62,7 +62,7 @@ const beers = [{
         domString +=        `<div class="form-group mb-2">`
         domString +=        `<input type="numbers" class="form-control last-line mr-4" id="inputNumber" placeholder="0">`
         domString +=        `</div>`
-        domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4">Buy</button>`
+        domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4 buyButton" id = ${beer.beerId}>Buy</button>`
         domString +=        `</form>`
         domString +=    `</div>`;
         domString += `</div>`;
@@ -75,6 +75,32 @@ const navItem = document.getElementsByClassName('nav-item');
 const homePage = document.getElementById('home');
 const aboutUsPage = document.getElementById('about-us');
 const productsPage = document.getElementById('products');
+
+// const purchaseBuilder = () => {
+//   buyString = '';
+
+
+
+// };
+
+// const beersToBuy = (e) => {
+//   const buttonId = e.target.id;
+//   beers.forEach((beer, index) => {
+//       if(beer.beerId === buttonId){
+//           const beerNumber = document.getElementById('inputNumber').value;
+//       };
+//   });
+//   domStringBuilder(beers);
+//   addBuyEvents();
+//   printToDom('purchases', buyString);
+// };
+
+// const addBuyEvents = () => {
+//   const buyButtons = document.getElementsByClassName('buyButton');
+//   for( let i=0; i<deleteButtons.length; i++){
+//       buyButtons[i].addEventListener('click', beersToBuy);
+//   };
+// };
 
 const pageLoad = () => {
   aboutUsPage.classList.add('d-none');
