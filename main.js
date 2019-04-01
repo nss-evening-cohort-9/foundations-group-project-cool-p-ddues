@@ -1,8 +1,9 @@
 
-const printToDom = (divId, textToPrint) => {
-    const selectedDiv = document.getElementById(divId);
-    selectedDiv.innerHTML = textToPrint;
-};
+const navItem = document.getElementsByClassName('nav-item');
+const homePage = document.getElementById('home');
+const aboutUsPage = document.getElementById('about-us');
+const productsPage = document.getElementById('products');
+const aboutUsHomeButton = document.getElementById('aboutUs-homeButton');
 
 const beers = [{
     beerName: 'King Penguin',
@@ -41,42 +42,37 @@ const beers = [{
     isAvailable: 'Not Available',
   }];
 
-  const beerBuilder = (beersArray) => {
-      domString = '';
-      beersArray.forEach((beer) => {
-
-        
-        domString += `<div class="card" >`;
-        domString +=    `<div id='card' class='card-body'>`;
-        domString +=        `<img src=${beer.beerImgURL} class="card-img-top beer-img">`;
-        domString +=        `<h3 class="card-title">${beer.beerName}</h3>`;
-        domString +=        `<h4>${beer.beerType}</h4>`;
-        domString +=        `<h5>This beer is ${beer.beerFlavor}</h3>`;
-        domString +=        `<h3>${beer.beerPrice}</h3>`;
-        domString +=       `<h3>${beer.isAvailable}</h3>`; //add an if loop or something
-        // form inputs for bootstrap
-        domString +=        `<form class="form-inline">`
-        domString +=        `<div class="form-group mb-1">`
-        domString +=        `<input type="text" readonly class="form-control-plaintext last-line" id="prompt" value="Quantity:">`
-        domString +=        `</div>`
-        domString +=        `<div class="form-group mb-2">`
-        domString +=        `<input type="numbers" class="form-control last-line mr-4" id="inputNumber" placeholder="0">`
-        domString +=        `</div>`
-        domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4">Buy</button>`
-        domString +=        `</form>`
-        domString +=    `</div>`;
-        domString += `</div>`;
-          
-      });
-      printToDom('products', domString);
-  };
-
-const navItem = document.getElementsByClassName('nav-item');
-const homePage = document.getElementById('home');
-const aboutUsPage = document.getElementById('about-us');
-const productsPage = document.getElementById('products');
-const aboutUsHomeButton = document.getElementById('aboutUs-homeButton');
-
+const printToDom = (divId, textToPrint) => {
+  const selectedDiv = document.getElementById(divId);
+  selectedDiv.innerHTML = textToPrint;
+};
+  
+const beerBuilder = (beersArray) => {
+    domString = '';
+    beersArray.forEach((beer) => {      
+      domString += `<div class="card" >`;
+      domString +=    `<div id='card' class='card-body'>`;
+      domString +=        `<img src=${beer.beerImgURL} class="card-img-top beer-img">`;
+      domString +=        `<h3 class="card-title">${beer.beerName}</h3>`;
+      domString +=        `<h4>${beer.beerType}</h4>`;
+      domString +=        `<h5>This beer is ${beer.beerFlavor}</h3>`;
+      domString +=        `<h3>${beer.beerPrice}</h3>`;
+      domString +=       `<h3>${beer.isAvailable}</h3>`; //add an if loop or something
+      // form inputs for bootstrap
+      domString +=        `<form class="form-inline">`
+      domString +=        `<div class="form-group mb-1">`
+      domString +=        `<input type="text" readonly class="form-control-plaintext last-line" id="prompt" value="Quantity:">`
+      domString +=        `</div>`
+      domString +=        `<div class="form-group mb-2">`
+      domString +=        `<input type="numbers" class="form-control last-line mr-4" id="inputNumber" placeholder="0">`
+      domString +=        `</div>`
+      domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4">Buy</button>`
+      domString +=        `</form>`
+      domString +=    `</div>`;
+      domString += `</div>`;
+    });
+    printToDom('products', domString);
+};
 
 const pageLoad = () => {
   aboutUsPage.classList.add('d-none');
@@ -124,8 +120,6 @@ const init = () => {
   pageLoad();
   beerBuilder(beers);
   eventListeners();
-  
-  
 };
 
 init();
