@@ -61,14 +61,17 @@ body {
 }
 
 .group-pic {
-    padding: 30px;
-    width: 500px;
+
+    width:  auto;
     height: 500px;
+    border: 2px solid #4b4b4b;
+    border-radius: 1%;
 }
 
 .about-us-story {
-    width: 60%;
     margin: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
     padding: 10px;
     text-align: center;
 }
