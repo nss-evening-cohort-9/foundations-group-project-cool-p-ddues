@@ -59,12 +59,12 @@ const beerBuilder = (beersArray) => {
       domString +=       `<p class="text-right col-5 p-0 m-0 align-self-end">${beer.isAvailable}</p>`; //add an if loop or something
       // form inputs for bootstrap
       domString +=       `<form>`
-      domString +=         `<div class="form-row row justify-content-between mt-1">`
+      domString +=         `<div class="form-row row mt-1 justify-content-between align-items-center">`
       domString +=           `<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm px-0 mx-0" id="prompt">Quantity:</label>`
       domString +=           `<div class="col-4 px-0 mx-2">`
       domString +=             `<input type="numbers" class="form-control form-control-sm" id="inputNumber" placeholder="0">`
       domString +=           `</div>`
-      domString +=             `<button type="submit" class="btn btn-primary col-4 p-0 mx-0">Buy</button>`
+      domString +=             `<button type="submit" class="btn btn-primary col-4 px-3 mx-0">Buy</button>`
       domString +=         `</div>`
       domString +=       `</form>`
       domString +=     `</div>`
