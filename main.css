@@ -43,11 +43,6 @@ body {
     text-align: center;
 }
 
-#home {
-    background-color: white;
-    background-blend-mode: color;
-}
-
 .nav-item {
     cursor: pointer;
 }
