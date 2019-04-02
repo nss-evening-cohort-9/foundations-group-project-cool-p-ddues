@@ -46,6 +46,11 @@ const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.getElementById(divId);
   selectedDiv.innerHTML = textToPrint;
 };
+
+const printToPurchased = (divId, purchasedBeer) => {
+  const selectedDiv2 = document.getElementById(divId);
+  selectedDiv2.innerHTML += purchasedBeer;
+};
   
 const beerBuilder = (beersArray) => {
     domString = '';
@@ -64,14 +69,41 @@ const beerBuilder = (beersArray) => {
       domString +=        `<input type="text" readonly class="form-control-plaintext last-line" id="prompt" value="Quantity:">`
       domString +=        `</div>`
       domString +=        `<div class="form-group mb-2">`
-      domString +=        `<input type="numbers" class="form-control last-line mr-4" id="inputNumber" placeholder="0">`
+      domString +=        `<input type="numbers" class="form-control last-line mr-4" id="input${beer.beerId}" placeholder="0">`
       domString +=        `</div>`
-      domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4">Buy</button>`
+      domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4 buyButton" id= ${beer.beerId}>Buy</button>`
       domString +=        `</form>`
       domString +=    `</div>`;
       domString += `</div>`;
     });
-    printToDom('products', domString);
+    printToDom("products2", domString);
+};
+
+const beersToBuy = (e) => {
+  e.preventDefault();
+  const buttonId = e.target.id;
+  let buyString = '';
+  beers.forEach((beer) => {
+      if(beer.beerId === buttonId){
+          const beerNumber = document.getElementById(`input${beer.beerId}`).value;
+          const beerCost = beerNumber * beer.beerPrice;
+          const beerName = beer.beerName;
+          buyString += beerNumber;
+          buyString += beerName;
+          buyString += beerCost;
+      
+        };
+  });
+  beerBuilder(beers);
+  addBuyEvents();
+  printToPurchased('purchased', buyString);
+};
+
+const addBuyEvents = () => {
+  const buyButtons = document.getElementsByClassName('buyButton');
+  for( let i=0; i<buyButtons.length; i++){
+      buyButtons[i].addEventListener('click', beersToBuy);
+  };
 };
 
 const pageLoad = () => {
@@ -120,6 +152,7 @@ const init = () => {
   pageLoad();
   beerBuilder(beers);
   eventListeners();
+  addBuyEvents();
 };
 
 init();
