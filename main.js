@@ -4,6 +4,11 @@ const homePage = document.getElementById('home');
 const aboutUsPage = document.getElementById('about-us');
 const productsPage = document.getElementById('products');
 const aboutUsHomeButton = document.getElementById('aboutUs-homeButton');
+const orderDiv = document.getElementById('purchased');
+const completePurchased = document.getElementById('completeTransButton');
+
+
+totalPrice = 0;
 
 const beers = [{
     beerName: 'King Penguin',
@@ -76,7 +81,7 @@ const beerBuilder = (beersArray) => {
       domString +=    `</div>`;
       domString += `</div>`;
     });
-    printToDom("products2", domString);
+    printToDom("products", domString);
 };
 
 const beersToBuy = (e) => {
@@ -89,14 +94,15 @@ const beersToBuy = (e) => {
           const beerCost = beerNumber * beer.beerPrice;
           const beerName = beer.beerName;
           buyString += beerNumber;
-          buyString += beerName;
-          buyString += beerCost;
-      
+          buyString += ' ' + beerName ;
+          buyString += ' ' + beerCost + `<br>`;
+          totalPrice += beerCost;
         };
   });
   beerBuilder(beers);
   addBuyEvents();
-  printToPurchased('purchased', buyString);
+  printToPurchased('list-beers', buyString);
+  printToDom('totalPrice', `<h3>Total: ${totalPrice}</h3>`);
 };
 
 const addBuyEvents = () => {
@@ -106,9 +112,22 @@ const addBuyEvents = () => {
   };
 };
 
+const finishEvent = () =>{
+  completePurchased.addEventListener('click', completeTransButton);
+};
+
+const completeTransButton = (e) => {
+    const ButtonId = e.target.id;
+    if (buttonId = 'completeTransButton' && totalPrice > 0){
+      swal("Your purchase was successful!", "Thank you!", "success");
+    };
+};
+
+
 const pageLoad = () => {
   aboutUsPage.classList.add('d-none');
   productsPage.classList.add('d-none');
+  orderDiv.classList.add('d-none');
   productsPage.classList.remove('d-flex');
 };
 
@@ -121,24 +140,28 @@ const handleNavClick = (e) => {
     aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
+    orderDiv.classList.add('d-none');
   } else if (navId === 'navToAboutUs') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.remove('d-none');
     aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
+    orderDiv.classList.add('d-none');
   } else if (navId === 'aboutUs-homeButton') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.remove('d-none');
     aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
+    orderDiv.classList.add('d-none');
   } else if (navId === 'navToProducts') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.add('d-none');
     aboutUsHomeButton.classList.add('d-none');
     productsPage.classList.remove('d-none');
     productsPage.classList.add('d-flex');
+    orderDiv.classList.remove('d-none');
   };
 };
 
@@ -153,6 +176,7 @@ const init = () => {
   beerBuilder(beers);
   eventListeners();
   addBuyEvents();
+  finishEvent();
 };
 
 init();
