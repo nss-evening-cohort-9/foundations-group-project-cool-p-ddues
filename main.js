@@ -4,6 +4,8 @@ const homePage = document.getElementById('home');
 const aboutUsPage = document.getElementById('about-us');
 const productsPage = document.getElementById('products');
 const aboutUsHomeButton = document.getElementById('aboutUs-homeButton');
+const orderDiv = document.getElementById('purchased');
+
 
 const beers = [{
     beerName: 'King Penguin',
@@ -77,6 +79,7 @@ const beerBuilder = (beersArray) => {
 const pageLoad = () => {
   aboutUsPage.classList.add('d-none');
   productsPage.classList.add('d-none');
+  orderDiv.classList.add('d-none');
   productsPage.classList.remove('d-flex');
 };
 
@@ -89,24 +92,28 @@ const handleNavClick = (e) => {
     aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
+    orderDiv.classList.add('d-none');
   } else if (navId === 'navToAboutUs') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.remove('d-none');
     aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
+    orderDiv.classList.add('d-none');
   } else if (navId === 'aboutUs-homeButton') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.remove('d-none');
     aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
+    orderDiv.classList.add('d-none');
   } else if (navId === 'navToProducts') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.add('d-none');
     aboutUsHomeButton.classList.add('d-none');
     productsPage.classList.remove('d-none');
     productsPage.classList.add('d-flex');
+    orderDiv.classList.remove('d-none');
   };
 };
 

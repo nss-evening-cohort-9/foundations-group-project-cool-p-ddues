@@ -70,3 +70,30 @@ body {
     padding: 10px;
     text-align: center;
 }
+
+#purchased {
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.button-to-complete {
+position: relative;
+width: 100%;
+margin-left: 38em;
+margin-right: auto;
+margin-bottom: 10px;
+
+}
+
+#completeTransButton{
+    border-radius: .3rem;
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+  
+
+}
