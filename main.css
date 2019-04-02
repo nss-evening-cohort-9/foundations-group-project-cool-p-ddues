@@ -94,6 +94,9 @@ margin-bottom: 10px;
     background-color: #28a745;
     color: white;
     font-size: 18px;
-  
 
+}
+#purchased {
+    display: flex;
+    flex-direction: column;
 }
