@@ -3,6 +3,7 @@ const navItem = document.getElementsByClassName('nav-item');
 const homePage = document.getElementById('home');
 const aboutUsPage = document.getElementById('about-us');
 const productsPage = document.getElementById('products');
+const aboutUsHomeButton = document.getElementById('aboutUs-homeButton');
 
 const beers = [{
     beerName: 'King Penguin',
@@ -45,6 +46,11 @@ const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.getElementById(divId);
   selectedDiv.innerHTML = textToPrint;
 };
+
+const printToPurchased = (divId, purchasedBeer) => {
+  const selectedDiv2 = document.getElementById(divId);
+  selectedDiv2.innerHTML += purchasedBeer;
+};
   
 const beerBuilder = (beersArray) => {
     domString = '';
@@ -63,41 +69,42 @@ const beerBuilder = (beersArray) => {
       domString +=        `<input type="text" readonly class="form-control-plaintext last-line" id="prompt" value="Quantity:">`
       domString +=        `</div>`
       domString +=        `<div class="form-group mb-2">`
-      domString +=        `<input type="numbers" class="form-control last-line mr-4" id="inputNumber" placeholder="0">`
+      domString +=        `<input type="numbers" class="form-control last-line mr-4" id="input${beer.beerId}" placeholder="0">`
       domString +=        `</div>`
-      domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4">Buy</button>`
+      domString +=        `<button type="submit" class="btn btn-primary mb-2 ml-4 buyButton" id= ${beer.beerId}>Buy</button>`
       domString +=        `</form>`
       domString +=    `</div>`;
       domString += `</div>`;
     });
-    printToDom('products', domString);
+    printToDom("products2", domString);
 };
 
-// const purchaseBuilder = () => {
-//   buyString = '';
+const beersToBuy = (e) => {
+  e.preventDefault();
+  const buttonId = e.target.id;
+  let buyString = '';
+  beers.forEach((beer) => {
+      if(beer.beerId === buttonId){
+          const beerNumber = document.getElementById(`input${beer.beerId}`).value;
+          const beerCost = beerNumber * beer.beerPrice;
+          const beerName = beer.beerName;
+          buyString += beerNumber;
+          buyString += beerName;
+          buyString += beerCost;
+      
+        };
+  });
+  beerBuilder(beers);
+  addBuyEvents();
+  printToPurchased('purchased', buyString);
+};
 
-
-
-// };
-
-// const beersToBuy = (e) => {
-//   const buttonId = e.target.id;
-//   beers.forEach((beer, index) => {
-//       if(beer.beerId === buttonId){
-//           const beerNumber = document.getElementById('inputNumber').value;
-//       };
-//   });
-//   domStringBuilder(beers);
-//   addBuyEvents();
-//   printToDom('purchases', buyString);
-// };
-
-// const addBuyEvents = () => {
-//   const buyButtons = document.getElementsByClassName('buyButton');
-//   for( let i=0; i<deleteButtons.length; i++){
-//       buyButtons[i].addEventListener('click', beersToBuy);
-//   };
-// };
+const addBuyEvents = () => {
+  const buyButtons = document.getElementsByClassName('buyButton');
+  for( let i=0; i<buyButtons.length; i++){
+      buyButtons[i].addEventListener('click', beersToBuy);
+  };
+};
 
 const pageLoad = () => {
   aboutUsPage.classList.add('d-none');
@@ -111,16 +118,25 @@ const handleNavClick = (e) => {
   if (navId === 'navToHome') {
     homePage.classList.remove('d-none');
     aboutUsPage.classList.add('d-none');
+    aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
   } else if (navId === 'navToAboutUs') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.remove('d-none');
+    aboutUsHomeButton.classList.remove('d-none');
+    productsPage.classList.remove('d-flex')
+    productsPage.classList.add('d-none');
+  } else if (navId === 'aboutUs-homeButton') {
+    homePage.classList.add('d-none');
+    aboutUsPage.classList.remove('d-none');
+    aboutUsHomeButton.classList.remove('d-none');
     productsPage.classList.remove('d-flex')
     productsPage.classList.add('d-none');
   } else if (navId === 'navToProducts') {
     homePage.classList.add('d-none');
     aboutUsPage.classList.add('d-none');
+    aboutUsHomeButton.classList.add('d-none');
     productsPage.classList.remove('d-none');
     productsPage.classList.add('d-flex');
   };
@@ -136,6 +152,7 @@ const init = () => {
   pageLoad();
   beerBuilder(beers);
   eventListeners();
+  addBuyEvents();
 };
 
 init();
