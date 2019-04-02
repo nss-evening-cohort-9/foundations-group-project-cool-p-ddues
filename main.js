@@ -5,6 +5,8 @@ const aboutUsPage = document.getElementById('about-us');
 const productsPage = document.getElementById('products');
 const aboutUsHomeButton = document.getElementById('aboutUs-homeButton');
 const orderDiv = document.getElementById('purchased');
+const completePurchased = document.getElementById('completeTransButton');
+
 
 totalPrice = 0;
 
@@ -110,6 +112,18 @@ const addBuyEvents = () => {
   };
 };
 
+const finishEvent = () =>{
+  completePurchased.addEventListener('click', completeTransButton);
+};
+
+const completeTransButton = (e) => {
+    const ButtonId = e.target.id;
+    if (buttonId = 'completeTransButton' && totalPrice > 0){
+      swal("Your purchase was successful!", "Thank you!", "success");
+    };
+};
+
+
 const pageLoad = () => {
   aboutUsPage.classList.add('d-none');
   productsPage.classList.add('d-none');
@@ -162,6 +176,7 @@ const init = () => {
   beerBuilder(beers);
   eventListeners();
   addBuyEvents();
+  finishEvent();
 };
 
 init();
