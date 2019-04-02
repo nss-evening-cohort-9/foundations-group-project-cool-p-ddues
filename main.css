@@ -82,10 +82,15 @@ body {
 
 .button-to-complete {
 position: relative;
-width: 100%;
-margin-left: 38em;
-margin-right: auto;
-margin-bottom: 10px;
+display: flex;
+list-style: none;
+flex-flow: column wrap;
+justify-content: space-around;
+align-items: flex-end;
+
+margin-right: 40px;
+margin-bottom: 20px;
+margin-top: 10px;
 
 }
 
@@ -94,8 +99,8 @@ margin-bottom: 10px;
     background-color: #28a745;
     color: white;
     font-size: 18px;
-
 }
+
 #purchased {
     display: flex;
     flex-direction: column;

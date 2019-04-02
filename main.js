@@ -6,6 +6,7 @@ const productsPage = document.getElementById('products');
 const aboutUsHomeButton = document.getElementById('aboutUs-homeButton');
 const orderDiv = document.getElementById('purchased');
 
+totalPrice = 0;
 
 const beers = [{
     beerName: 'King Penguin',
@@ -85,7 +86,6 @@ const beersToBuy = (e) => {
   e.preventDefault();
   const buttonId = e.target.id;
   let buyString = '';
-  let totalPrice = ''
   beers.forEach((beer) => {
       if(beer.beerId === buttonId){
           const beerNumber = document.getElementById(`input${beer.beerId}`).value;
@@ -95,12 +95,12 @@ const beersToBuy = (e) => {
           buyString += ' ' + beerName ;
           buyString += ' ' + beerCost + `<br>`;
           totalPrice += beerCost;
-          console.log(totalPrice);
         };
   });
   beerBuilder(beers);
   addBuyEvents();
-  printToPurchased('purchased2', buyString);
+  printToPurchased('list-beers', buyString);
+  printToDom('totalPrice', `<h3>Total: ${totalPrice}</h3>`);
 };
 
 const addBuyEvents = () => {
