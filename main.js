@@ -41,7 +41,7 @@ const beers = [{
     beerPrice: 7.50,
     beerType: 'Stout',
     beerFlavor: ['dark', ' heavy', ' coffee aroma', ' creamy finish'],
-    isAvailable: 'Not Available',
+    isAvailable: 'Available',
   }];
 
 const printToDom = (divId, textToPrint) => {
