@@ -15,14 +15,9 @@ h1, h2, h3, h4, h5, h6 {
     color: #EAEBEC;
 }
 
-/* .last-line {
-    width: 70px !important;
-} */
-/* 
-#prompt {
-    text-align: center;
-    margin-right: 5px;
-} */
+.cool-text-dark {
+    color: #3D3D3E;
+}
 
 .card {
     width: 30%;
@@ -57,9 +52,12 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.3em;
 }
 
-.nav-item {
+.nav-btn {
     cursor: pointer;
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+.biggie-size {
     font-size: 1.5em;
 }
 
@@ -126,3 +124,53 @@ h1, h2, h3, h4, h5, h6 {
     background-color: transparent;
     color: #3D3D3E;
 }
+
+#about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.group-pic {
+    width:  auto;
+    height: 500px;
+    border: 2px solid #4b4b4b;
+    border-radius: 1%;
+}
+
+.about-us-story {
+    margin: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+#purchased {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.button-to-complete {
+    position: relative;
+    display: flex;
+    list-style: none;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    /* margin-right: 40px;
+    margin-bottom: 20px;
+    margin-top: 10px; */
+}
+    
+#completeTransButton{
+    border-radius: .3rem;
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+}
+
