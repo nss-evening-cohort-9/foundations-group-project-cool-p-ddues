@@ -1,24 +1,31 @@
 body {
-    background-color: whitesmoke;
+    background-color: #3D3D3E;
+    color: whitesmoke;
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
-.last-line {
-    width: 70px !important;
+p {
+    font-family: 'Lato', sans-serif;
 }
 
-.beer-img {
-    height: 400px;
-    width: 200;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #EAEBEC;
 }
-#prompt {
-    text-align: center;
-    margin-right: 5px;
+
+.cool-text-dark {
+    color: #3D3D3E;
 }
 
 .card {
     width: 30%;
     max-width: 300px;
     margin: 10px;
+    padding: 0;
+    color: black;
+    border: none;
 }
 
 #home {
@@ -27,24 +34,95 @@ body {
 }
 
 .background-img {
-    background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0.9))), url("./img/BeerPenguin.jpg");
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.9) 100%), url("./img/BeerPenguin.jpg");
-   background-size: cover;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: 75em;
-
+    /* background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.1))), url("./img/background/png");
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("./img/background.png"); */
+    background: url("./img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 550px;
 }
 
 .content {
     width: 50%;
-    margin-top: 250px;
-    text-align: center;
+    text-align: right;
+    color: #3D3D3E;
+    font-size: 1.3em;
 }
 
-.nav-item {
+.nav-btn {
     cursor: pointer;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.biggie-size {
+    font-size: 1.5em;
+}
+
+.fa-envelope {
+    color: #EAEBEC;
+}
+
+.fa-twitter {
+    color: #EAEBEC;
+}
+
+.fa-instagram {
+    color: #EAEBEC;
+}
+
+.card-title {
+    color: black;
+}
+
+#products {
+    background-color: #EAEBEC;
+}
+
+.beer-img {
+    /* background-color: #F8F8F8; */
+    background: linear-gradient(90deg, rgba(248, 248, 248, 0.1) 0%, rgb(185, 185, 185, .2) 100%);
+}
+
+.text-muted-2 {
+    color: #2ED1B1;
+}
+
+.flavor-size {
+    min-height: 46.67px;
+    padding: 0;
+}
+
+.rowParent .columnParent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+}
+
+.columnParent {
+    flex-direction: column;
+}
+
+.flexChild {
+    flex: 1;
+    align-self: auto;
+}
+
+.form-row {
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+}
+
+.outline-btn {
+    border: 2px solid #3D3D3E;
+    background-color: transparent;
+    color: #3D3D3E;
 }
 
 #about-us {
@@ -52,11 +130,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 .group-pic {
-
     width:  auto;
     height: 500px;
     border: 2px solid #4b4b4b;
@@ -74,26 +150,23 @@ body {
 #purchased {
     display: flex;
     flex-direction: column;
-
     height: auto;
     background-color: #fff;
     border-radius: 2px;
 }
 
 .button-to-complete {
-position: relative;
-display: flex;
-list-style: none;
-flex-flow: column wrap;
-justify-content: space-around;
-align-items: flex-end;
-
-margin-right: 40px;
-margin-bottom: 20px;
-margin-top: 10px;
-
+    position: relative;
+    display: flex;
+    list-style: none;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    /* margin-right: 40px;
+    margin-bottom: 20px;
+    margin-top: 10px; */
 }
-
+    
 #completeTransButton{
     border-radius: .3rem;
     background-color: #28a745;
@@ -101,7 +174,3 @@ margin-top: 10px;
     font-size: 18px;
 }
 
-#purchased {
-    display: flex;
-    flex-direction: column;
-}
