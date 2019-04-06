@@ -90,12 +90,16 @@ const beersToBuy = (e) => {
   beers.forEach((beer) => {
     if(beer.beerId === buttonId){
         const beerNumber = document.getElementById(`input${beer.beerId}`).value;
+        if(beerNumber === ''){
+          swal("Please enter beer quantity", "",'error');
+        } else {
         const beerCost = beerNumber * beer.beerPrice;
         const beerName = beer.beerName;
         buyString += `<td>${beerNumber} x</td>`;
         buyString += `<td>${beerName}</td>`;
         buyString += `<td>$${beerCost.toFixed(2)}</td>`;
         totalPrice += beerCost;
+        };
       };
   });
   beerBuilder(beers);
